@@ -49,7 +49,7 @@ export default function Specials() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 50])
 
   return (
-    <section id="specials" className="py-24 bg-[#0A0A0A] relative overflow-hidden">
+    <section id="specials" className="py-12 md:py-24 bg-[#0A0A0A] relative overflow-hidden">
       {/* Orange geometric pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -63,16 +63,16 @@ export default function Specials() {
       </div>
 
       {/* Floating sparkle decorations */}
-      <div className="absolute top-20 left-10 text-[#F5A623] opacity-10 text-4xl">✦</div>
-      <div className="absolute top-40 right-20 text-[#F5A623] opacity-10 text-3xl">✦</div>
-      <div className="absolute bottom-60 left-1/4 text-[#F5A623] opacity-10 text-5xl">✦</div>
-      <div className="absolute bottom-40 right-1/3 text-[#F5A623] opacity-10 text-2xl">✦</div>
+      <div className="absolute top-20 left-10 text-[#F5A623] opacity-10 text-2xl md:text-4xl">✦</div>
+      <div className="absolute top-40 right-20 text-[#F5A623] opacity-10 text-xl md:text-3xl">✦</div>
+      <div className="absolute bottom-60 left-1/4 text-[#F5A623] opacity-10 text-3xl md:text-5xl">✦</div>
+      <div className="absolute bottom-40 right-1/3 text-[#F5A623] opacity-10 text-lg md:text-2xl">✦</div>
 
       {/* Vertical accent line */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-[#F5A623] to-transparent opacity-30" />
 
       {/* Watermark */}
-      <div className="absolute top-32 right-10 text-[#FFFFFF] opacity-5 font-black text-9xl font-heading select-none hidden lg:block">
+      <div className="absolute top-32 right-10 text-[#FFFFFF] opacity-5 font-black text-6xl md:text-9xl font-heading select-none hidden lg:block">
         SPECIALS
       </div>
 
@@ -83,40 +83,40 @@ export default function Specials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           {/* Top decorative line */}
-          <div className="flex items-center justify-center mb-8">
-            <div className="h-px w-16 bg-[#F5A623]"></div>
-            <span className="mx-4 text-[#F5A623] text-2xl">✦</span>
-            <div className="h-px w-16 bg-[#F5A623]"></div>
+          <div className="flex items-center justify-center mb-4 md:mb-8">
+            <div className="h-px w-8 md:w-16 bg-[#F5A623]"></div>
+            <span className="mx-2 md:mx-4 text-[#F5A623] text-lg md:text-2xl">✦</span>
+            <div className="h-px w-8 md:w-16 bg-[#F5A623]"></div>
           </div>
 
           {/* Badge */}
-          <span className="inline-block border border-[#F5A623] text-[#F5A623] px-4 py-1.5 rounded-full text-sm font-medium tracking-wider uppercase mb-6">
+          <span className="inline-block border border-[#F5A623] text-[#F5A623] px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wider uppercase mb-4 md:mb-6">
             ⭐ Chef's Selection
           </span>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-heading font-bold text-white mb-2 md:mb-4">
             Our Chef's <span className="text-[#F5A623]">Specials</span>
           </h2>
 
           {/* Subheading */}
-          <p className="text-[#F5A623] italic text-xl md:text-2xl font-serif">
+          <p className="text-[#F5A623] italic text-base md:text-xl lg:text-2xl font-serif">
             "Dishes that define the AXUM experience"
           </p>
 
           {/* Bottom decorative line */}
-          <div className="flex items-center justify-center mt-8">
-            <div className="h-px w-16 bg-[#F5A623]"></div>
-            <span className="mx-4 text-[#F5A623] text-2xl">✦</span>
-            <div className="h-px w-16 bg-[#F5A623]"></div>
+          <div className="flex items-center justify-center mt-4 md:mt-8">
+            <div className="h-px w-8 md:w-16 bg-[#F5A623]"></div>
+            <span className="mx-2 md:mx-4 text-[#F5A623] text-lg md:text-2xl">✦</span>
+            <div className="h-px w-8 md:w-16 bg-[#F5A623]"></div>
           </div>
         </motion.div>
 
         {/* Main Specials Layout */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
           {specials.map((special, i) => (
             <motion.div
               key={special.name}
@@ -124,7 +124,7 @@ export default function Specials() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2, duration: 0.8 }}
-              className="bg-[#111111] rounded-lg overflow-hidden border-t-4 border-[#F5A623] hover:translate-y-[-8px] hover:shadow-[0_20px_40px_rgba(245,166,35,0.2)] transition-all duration-500 relative group"
+              className="bg-[#111111] rounded-lg overflow-hidden border-t-4 border-[#F5A623] hover:translate-y-[-4px] md:hover:translate-y-[-8px] hover:shadow-[0_20px_40px_rgba(245,166,35,0.2)] transition-all duration-500 relative group"
             >
               {/* Corner brackets */}
               <div className="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-[#F5A623] opacity-50 hidden md:block" />
@@ -133,7 +133,7 @@ export default function Specials() {
               <div className="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-[#F5A623] opacity-50 hidden md:block" />
 
               {/* Image Section */}
-              <div className="relative h-56 md:h-72 w-full">
+              <div className="relative h-48 md:h-56 lg:h-72 w-full">
                 <Image
                   src={special.image}
                   alt={`${special.name} - AXUM Restaurant Leeds`}
@@ -144,22 +144,22 @@ export default function Specials() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
 
                 {/* Badge */}
-                <div className={`absolute top-4 left-4 ${special.badgeColor} text-white text-xs font-bold px-3 py-1.5 uppercase tracking-widest`}>
+                <div className={`absolute top-3 md:top-4 left-3 md:left-4 ${special.badgeColor} text-white text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 uppercase tracking-widest`}>
                   {special.badge}
                 </div>
 
                 {/* Secondary Badge */}
                 {special.secondaryBadge && (
-                  <div className="absolute top-4 right-4 bg-[#F5A623] text-black text-xs font-bold px-3 py-1.5 uppercase tracking-widest">
+                  <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-[#F5A623] text-black text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 uppercase tracking-widest">
                     {special.secondaryBadge}
                   </div>
                 )}
               </div>
 
               {/* Content Section */}
-              <div className="p-6 md:p-8">
+              <div className="p-4 md:p-6 lg:p-8">
                 {/* Dish Name */}
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
                   {special.name}
                 </h3>
 
@@ -168,21 +168,21 @@ export default function Specials() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-3xl md:text-4xl font-black text-[#F5A623] mb-4"
+                  className="text-2xl md:text-3xl lg:text-4xl font-black text-[#F5A623] mb-3 md:mb-4"
                 >
                   {special.price}
                 </motion.p>
 
                 {/* Divider */}
-                <div className="border-t border-[#F5A623]/30 mb-4"></div>
+                <div className="border-t border-[#F5A623]/30 mb-3 md:mb-4"></div>
 
                 {/* Description */}
-                <p className="text-gray-400 italic leading-relaxed mb-6">
+                <p className="text-gray-400 italic leading-relaxed mb-4 md:mb-6 text-xs md:text-sm">
                   {special.description}
                 </p>
 
                 {/* Feature Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                   {special.features.map((feature, idx) => (
                     <motion.span
                       key={idx}
@@ -190,7 +190,7 @@ export default function Specials() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + idx * 0.1 }}
-                      className="border border-[#F5A623] text-[#F5A623] text-xs px-3 py-1.5 rounded-full uppercase tracking-wider"
+                      className="border border-[#F5A623] text-[#F5A623] text-[10px] md:text-xs px-2 md:px-3 py-1 md:py-1.5 rounded-full uppercase tracking-wider"
                     >
                       {feature}
                     </motion.span>

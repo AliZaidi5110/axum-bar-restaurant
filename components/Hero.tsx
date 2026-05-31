@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
@@ -27,7 +27,7 @@ const textVariants = {
 
 export default function Hero() {
   const [current, setCurrent] = useState(0)
-  const [videoLoaded, setVideoLoaded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const nextSlide = useCallback(() => {
     setCurrent((prev) => (prev + 1) % heroVideos.length)
@@ -42,6 +42,14 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [nextSlide])
 
+  useEffect(() => {
+    // Play the video when the slide changes
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0
+      videoRef.current.play().catch(err => console.error('Video play error:', err))
+    }
+  }, [current])
+
   return (
     <section id="home" className="relative h-[98vh] w-full overflow-hidden">
       {/* Background Images */}
@@ -55,6 +63,8 @@ export default function Hero() {
             className="absolute inset-0"
           >
           <video
+            key={heroVideos[current].src}
+            ref={videoRef}
             src={heroVideos[current].src}
             autoPlay
             muted
@@ -62,12 +72,8 @@ export default function Hero() {
             playsInline
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
-            onLoadedData={() => setVideoLoaded(true)}
             onError={() => console.error('Video failed to load:', heroVideos[current].src)}
           />
-          {!videoLoaded && (
-            <div className="absolute inset-0 bg-black" />
-          )}
         </motion.div>
       </AnimatePresence>
 
@@ -87,9 +93,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-            className="mb-6"
+            className="mb-4 md:mb-6"
           >
-            <span className="inline-block bg-white/90 border border-[#F5A623] text-[#F5A623] px-4 py-1 rounded-full text-sm font-medium shadow-lg">
+            <span className="inline-block bg-white/90 border border-[#F5A623] text-[#F5A623] px-3 md:px-4 py-1 rounded-full text-xs md:text-sm font-medium shadow-lg">
               🍽️ Authentic Ethiopian, Eritrean & Tigray Cuisine
             </span>
           </motion.div>
@@ -99,7 +105,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-            className="text-4xl md:text-7xl font-extrabold tracking-tight text-white mb-4 drop-shadow-lg"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-3 md:mb-4 drop-shadow-lg"
           >
             <span className="text-[#F5A623]">AXUM</span>{' '}
             <span className="text-white">Bar & Restaurant</span>
@@ -110,7 +116,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
-            className="text-xl md:text-3xl italic font-light text-white/90 mb-6 drop-shadow-md"
+            className="text-base sm:text-xl md:text-2xl lg:text-3xl italic font-light text-white/90 mb-4 md:mb-6 drop-shadow-md"
           >
             &quot;Where Culture Meets Cuisine&quot;
           </motion.p>
@@ -120,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
-            className="text-sm md:text-lg text-white/80 max-w-2xl mx-auto mb-8 drop-shadow-md"
+            className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80 max-w-xl md:max-w-2xl mx-auto mb-6 md:mb-8 px-2 drop-shadow-md"
           >
             Experience the rich flavours of Ethiopia, Eritrea & Tigray in the heart of Leeds
           </motion.p>
@@ -130,17 +136,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full px-4"
           >
             <a
               href="#menu"
-              className="bg-[#F5A623] text-black font-bold px-8 py-4 rounded-full hover:bg-[#FFD700] transition-colors duration-200 text-center uppercase tracking-widest w-full sm:w-auto"
+              className="bg-[#F5A623] text-black font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-[#FFD700] transition-colors duration-200 text-center uppercase tracking-widest text-xs md:text-sm w-full sm:w-auto"
             >
               Explore Our Menu
             </a>
             <a
               href="#booking"
-              className="border-2 border-[#F5A623] text-white font-bold px-8 py-4 rounded-full hover:bg-[#F5A623] hover:text-black transition-colors duration-200 text-center uppercase tracking-widest w-full sm:w-auto"
+              className="border-2 border-[#F5A623] text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-[#F5A623] hover:text-black transition-colors duration-200 text-center uppercase tracking-widest text-xs md:text-sm w-full sm:w-auto"
             >
               Book a Table
             </a>

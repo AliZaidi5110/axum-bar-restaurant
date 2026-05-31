@@ -247,18 +247,18 @@ export default function Menu() {
           className="max-w-2xl mx-auto mb-12"
         >
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#F5A623] w-5 h-5" />
+            <Search className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-[#F5A623] w-4 h-4 md:w-5 md:h-5" />
             <input
               type="text"
               placeholder="Search our menu..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-[#1A1A1A] border border-[#F5A623]/40 rounded-full py-4 pl-12 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5A623] focus:ring-1 focus:ring-[#F5A623] transition-all"
+              className="w-full bg-[#1A1A1A] border border-[#F5A623]/40 rounded-full py-2 md:py-4 pl-9 md:pl-12 pr-3 md:pr-4 text-xs md:text-base text-white placeholder-gray-500 focus:outline-none focus:border-[#F5A623] focus:ring-1 focus:ring-[#F5A623] transition-all"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors text-xs"
               >
                 ✕
               </button>
@@ -267,13 +267,13 @@ export default function Menu() {
         </motion.div>
 
         {/* Sticky Category Tabs */}
-        <div className="sticky top-[72px] z-40 bg-[#0A0A0A] border-b-2 border-[#F5A623] py-4 mb-8 -mx-4 px-4">
+        <div className="sticky top-[72px] z-40 bg-[#0A0A0A] border-b-2 border-[#F5A623] py-3 md:py-4 mb-6 md:mb-8 -mx-4 px-4">
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {menuData.map((category, i) => (
               <button
                 key={category.id}
                 onClick={() => handleCategoryClick(i)}
-                className={`whitespace-nowrap px-5 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
+                className={`whitespace-nowrap px-3 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
                   i === activeCategory
                     ? 'bg-[#F5A623] text-black scale-105 shadow-lg shadow-[#F5A623]/30'
                     : 'bg-[#1A1A1A] text-white border border-[#F5A623]/30 hover:border-[#F5A623] hover:text-[#F5A623]'
@@ -298,35 +298,35 @@ export default function Menu() {
 
         {/* Menu Categories */}
         {(searchTerm ? filteredMenuData : menuData).map((category, categoryIndex) => (
-          <div key={category.id} id={category.id} className="mb-16 scroll-mt-32">
+          <div key={category.id} id={category.id} className="mb-10 md:mb-16 scroll-mt-32">
             {/* Category Heading */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex items-center mb-8"
+              className="flex items-center mb-4 md:mb-8"
             >
               {/* Vertical bar */}
-              <div className="w-1 h-8 bg-[#F5A623] mr-4" />
+              <div className="w-1 h-6 md:h-8 bg-[#F5A623] mr-3 md:mr-4" />
               
               {/* Category name */}
               <div className="flex-grow">
-                <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-wider">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-white uppercase tracking-wider">
                   {category.emoji} {category.name}
                 </h3>
               </div>
 
               {/* Item count */}
-              <span className="bg-[#F5A623]/20 text-[#F5A623] text-xs font-bold px-3 py-1 rounded-full">
+              <span className="bg-[#F5A623]/20 text-[#F5A623] text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-full">
                 {category.items.length} dishes
               </span>
             </motion.div>
 
             {/* Decorative line */}
-            <div className="flex items-center mb-6">
+            <div className="flex items-center mb-4 md:mb-6">
               <div className="h-px flex-grow bg-[#F5A623]/30"></div>
-              <span className="mx-4 text-[#F5A623] text-xl">✦</span>
+              <span className="mx-4 text-[#F5A623] text-lg md:text-xl">✦</span>
             </div>
 
             {/* Menu Items */}
@@ -338,11 +338,11 @@ export default function Menu() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: itemIndex * 0.05, duration: 0.4 }}
-                  className="group bg-[#141414] border-b border-[#F5A623]/10 py-4 px-6 hover:bg-[#1E1E1E] hover:border-l-4 hover:border-l-[#F5A623] transition-all duration-200"
+                  className="group bg-[#141414] border-b border-[#F5A623]/10 py-3 md:py-4 px-4 md:px-6 hover:bg-[#1E1E1E] hover:border-l-4 hover:border-l-[#F5A623] transition-all duration-200"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 md:gap-4">
                     {/* Circular Image */}
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-full overflow-hidden ring-2 ring-[#F5A623] group-hover:ring-4 group-hover:scale-105 transition-all duration-300">
+                    <div className="relative w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex-shrink-0 rounded-full overflow-hidden ring-2 ring-[#F5A623] group-hover:ring-4 group-hover:scale-105 transition-all duration-300">
                       {item.image ? (
                         <Image
                           src={item.image}
