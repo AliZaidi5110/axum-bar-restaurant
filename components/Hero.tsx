@@ -27,6 +27,7 @@ const textVariants = {
 
 export default function Hero() {
   const [current, setCurrent] = useState(0)
+  const [videoLoaded, setVideoLoaded] = useState(false)
 
   const nextSlide = useCallback(() => {
     setCurrent((prev) => (prev + 1) % heroVideos.length)
@@ -42,7 +43,7 @@ export default function Hero() {
   }, [nextSlide])
 
   return (
-    <section id="home" className="relative h-screen md:h-screen w-full overflow-hidden">
+    <section id="home" className="relative h-[98vh] w-full overflow-hidden">
       {/* Background Images */}
         <AnimatePresence mode="sync">
           <motion.div
@@ -59,8 +60,14 @@ export default function Hero() {
             muted
             loop
             playsInline
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={() => console.error('Video failed to load:', heroVideos[current].src)}
           />
+          {!videoLoaded && (
+            <div className="absolute inset-0 bg-black" />
+          )}
         </motion.div>
       </AnimatePresence>
 
