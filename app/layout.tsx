@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat, Inter } from 'next/font/google'
+import { Montserrat, Inter, Cinzel_Decorative } from 'next/font/google'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -11,6 +11,13 @@ const montserrat = Montserrat({
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+})
+
+const cinzelDecorative = Cinzel_Decorative({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-cinzel-decorative',
   display: 'swap',
 })
 
@@ -31,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${inter.variable} ${cinzelDecorative.variable}`}>
       <body className="bg-secondary text-white font-body">
         {children}
       </body>

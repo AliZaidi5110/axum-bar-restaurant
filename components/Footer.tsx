@@ -15,23 +15,25 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] border-t-4 border-[#F5A623]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8 lg:gap-12">
           {/* Logo & Tagline */}
-          <div>
-            <Image
-              src="/AXUM_logo_transparent.png"
-              alt="AXUM Bar & Restaurant"
-              width={180}
-              height={70}
-              className="w-[140px] md:w-[160px] h-auto mb-3 md:mb-4"
-            />
+          <div className="text-center sm:text-left">
+            <div className="flex justify-center sm:justify-start">
+              <Image
+                src="/AXUM_logo_transparent.png"
+                alt="AXUM Bar & Restaurant"
+                width={180}
+                height={70}
+                className="w-[120px] md:w-[140px] lg:w-[160px] h-[50px] md:h-[60px] lg:h-[70px] object-contain mb-3 md:mb-4"
+              />
+            </div>
             <p className="text-gray-400 text-xs md:text-sm">
               Authentic Ethiopian, Eritrean & Tigray Cuisine
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-white font-bold text-base md:text-lg mb-3 md:mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -48,7 +50,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4 className="text-white font-bold text-base md:text-lg mb-3 md:mb-4">Contact</h4>
             <div className="space-y-2 text-xs md:text-sm">
               <a href="tel:07954042211" className="block text-gray-400 hover:text-[#F5A623] transition-colors">
@@ -60,24 +62,24 @@ export default function Footer() {
               <p className="text-gray-400">34 Regent Street</p>
               <p className="text-gray-400">Leeds LS7 1DL</p>
             </div>
-            <div className="flex gap-3 md:gap-4 mt-3 md:mt-4">
+            <div className="flex gap-3 md:gap-4 mt-3 md:mt-4 justify-center sm:justify-start">
               <a
                 href="#"
-                className="text-[#F5A623] hover:text-[#FFD700] transition-colors"
+                className="text-[#F5A623] hover:text-[#FFD700] transition-colors w-10 h-10 flex items-center justify-center"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
-                className="text-[#F5A623] hover:text-[#FFD700] transition-colors"
+                className="text-[#F5A623] hover:text-[#FFD700] transition-colors w-10 h-10 flex items-center justify-center"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
-                className="text-[#F5A623] hover:text-[#FFD700] transition-colors"
+                className="text-[#F5A623] hover:text-[#FFD700] transition-colors w-10 h-10 flex items-center justify-center"
                 aria-label="TikTok"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +92,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4 text-center md:text-left">
             <p className="text-gray-500 text-xs md:text-sm">
               © 2025 AXUM Bar & Restaurant. All rights reserved.
             </p>

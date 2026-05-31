@@ -31,17 +31,17 @@ const features = [
 
 export default function About() {
   return (
-    <section id="about" className="py-12 md:py-20 bg-white">
+    <section id="about" className="py-12 md:py-20 bg-white w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-20">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center mb-8 md:mb-16">
           {/* Left - Image with frame */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative w-full"
           >
             <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]">
               {/* Orange corner brackets */}
@@ -66,7 +66,7 @@ export default function About() {
             <span className="text-primary font-medium text-xs md:text-sm tracking-wider uppercase">
               Our Story
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-dark mt-2 mb-4 md:mb-6">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-dark mt-2 mb-4 md:mb-6">
               More Than a Restaurant — A Cultural Experience
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
@@ -78,7 +78,7 @@ export default function About() {
             <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-primary to-accent mb-6 md:mb-8" />
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -98,7 +98,7 @@ export default function About() {
         </div>
 
         {/* Why Choose Us Cards */}
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}

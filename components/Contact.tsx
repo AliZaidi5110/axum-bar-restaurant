@@ -42,7 +42,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Info Cards */}
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
           {contactInfo.map((info, i) => (
             <motion.div
               key={info.title}
@@ -50,7 +50,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
-              className="bg-card rounded-xl p-5 md:p-8 text-center border border-gray-200 hover:border-primary/50 transition-colors duration-300"
+              className="bg-card rounded-xl p-4 md:p-6 lg:p-8 text-center border border-gray-200 hover:border-primary/50 transition-colors duration-300"
             >
               <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
                 <info.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
@@ -79,7 +79,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden border border-white/10"
+          className="relative w-full h-[300px] md:h-[450px] rounded-xl overflow-hidden border border-white/10"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2356.5!2d-1.537!3d53.813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795c1c1c1c1c1c%3A0x1c1c1c1c1c1c1c1c!2s34%20Regent%20Street%2C%20Leeds%20LS7%201DL!5e0!3m2!1sen!2suk!4v1600000000000!5m2!1sen!2suk"

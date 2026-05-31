@@ -5,9 +5,20 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
   body {
     @apply bg-secondary text-dark antialiased;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  * {
+    max-width: 100vw;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;

@@ -138,19 +138,19 @@ export default function Events() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="relative w-full h-[280px] md:h-[400px] lg:h-[500px] rounded-xl md:rounded-2xl overflow-hidden mb-8 md:mb-12 group"
+            className="relative w-full h-[350px] md:h-[500px] rounded-xl md:rounded-2xl overflow-hidden mb-8 md:mb-12 group"
           >
             <Image
               src={featuredEvent.image}
               alt={featuredEvent.imageAlt}
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
             <div className="absolute inset-0 bg-black/60" />
             
-            <div className="absolute inset-0 p-4 md:p-8 lg:p-12 flex flex-col justify-end">
-              <div className="flex flex-wrap gap-2 md:gap-3 mb-3 md:mb-4">
+            <div className="absolute inset-0 p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col justify-center md:justify-end text-center md:text-left">
+              <div className="flex flex-wrap gap-2 md:gap-3 mb-3 md:mb-4 justify-center md:justify-start">
                 <span className="bg-[#F5A623] text-black font-black uppercase tracking-widest text-[10px] md:text-xs px-2 md:px-3 py-1">
                   ⭐ Featured Event
                 </span>
@@ -174,7 +174,7 @@ export default function Events() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="text-gray-300 italic text-sm md:text-base lg:text-lg mb-3 md:mb-4 max-w-2xl"
+                className="text-gray-300 italic text-sm md:text-base lg:text-lg mb-3 md:mb-4 max-w-2xl mx-auto md:mx-0"
               >
                 {featuredEvent.description}
               </motion.p>
@@ -184,7 +184,7 @@ export default function Events() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="flex items-center gap-2 text-[#F5A623] font-bold mb-4 md:mb-6"
+                className="flex items-center gap-2 text-[#F5A623] font-bold mb-4 md:mb-6 justify-center md:justify-start"
               >
                 <Clock size={16} />
                 <span className="text-sm md:text-base">{featuredEvent.time}</span>
@@ -195,17 +195,17 @@ export default function Events() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto"
+                className="flex flex-col gap-3 w-full max-w-xs mx-auto md:mx-0 md:flex-row md:gap-4 md:w-auto"
               >
                 <a
                   href="#booking"
-                  className="bg-[#F5A623] text-black font-black uppercase tracking-widest py-2 md:py-3 px-6 md:px-8 text-center text-sm md:text-base hover:bg-[#FFD700] transition-colors duration-200"
+                  className="bg-[#F5A623] text-black font-black uppercase tracking-widest py-2 md:py-3 px-6 md:px-8 text-center text-sm md:text-base hover:bg-[#FFD700] transition-colors duration-200 w-full md:w-auto"
                 >
                   Book Your Table
                 </a>
                 <a
                   href="#contact"
-                  className="border-2 border-[#F5A623] text-white font-black uppercase tracking-widest py-2 md:py-3 px-6 md:px-8 text-center text-sm md:text-base hover:bg-[#F5A623] hover:text-black transition-colors duration-200"
+                  className="border-2 border-[#F5A623] text-white font-black uppercase tracking-widest py-2 md:py-3 px-6 md:px-8 text-center text-sm md:text-base hover:bg-[#F5A623] hover:text-black transition-colors duration-200 w-full md:w-auto"
                 >
                   Learn More
                 </a>
@@ -215,7 +215,7 @@ export default function Events() {
         )}
 
         {/* Regular Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 md:mb-12 w-full">
           {regularEvents.map((event, i) => (
             <motion.div
               key={event.name}
@@ -226,12 +226,12 @@ export default function Events() {
               className="group bg-[#141414] rounded-xl overflow-hidden border-t-4 border-[#F5A623] hover:translate-y-[-4px] md:hover:translate-y-[-8px] hover:shadow-[0_20px_40px_-15px_rgba(245,166,35,0.2)] transition-all duration-300 w-full"
             >
               {/* Image Section */}
-              <div className="relative h-40 md:h-56 lg:h-64 w-full">
+              <div className="relative h-48 sm:h-56 md:h-64 w-full">
                 <Image
                   src={event.image}
                   alt={event.imageAlt}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
                 

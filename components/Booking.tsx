@@ -54,14 +54,14 @@ export default function Booking() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8">
           {/* Left Panel - Call Us */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-card rounded-2xl p-5 md:p-8 border-t-4 border-primary"
+            className="bg-card rounded-2xl p-4 sm:p-6 md:p-8 border-t-4 border-primary"
           >
             <div className="flex items-center gap-3 mb-4 md:mb-6">
               <Phone className="w-6 h-6 md:w-8 md:h-8 text-primary" />
@@ -73,20 +73,20 @@ export default function Booking() {
             <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
               <a
                 href="tel:07954042211"
-                className="block text-xl md:text-2xl font-bold text-primary hover:text-accent transition-colors"
+                className="block text-2xl sm:text-3xl font-bold text-primary hover:text-accent transition-colors"
               >
                 07954 042 211
               </a>
               <a
                 href="tel:01132432336"
-                className="block text-xl md:text-2xl font-bold text-primary hover:text-accent transition-colors"
+                className="block text-2xl sm:text-3xl font-bold text-primary hover:text-accent transition-colors"
               >
                 0113 243 2336
               </a>
             </div>
             <a
               href="tel:01132432336"
-              className="inline-flex items-center gap-2 bg-primary text-black font-bold px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-accent transition-colors duration-200 text-sm md:text-base"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-black font-bold px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-accent transition-colors duration-200 text-sm md:text-base"
             >
               <Phone size={16} />
               Call Now
@@ -99,7 +99,7 @@ export default function Booking() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-card rounded-2xl p-5 md:p-8 border border-gray-200"
+            className="bg-card rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-200"
           >
             <div className="flex items-center gap-3 mb-4 md:mb-6">
               <Mail className="w-6 h-6 md:w-8 md:h-8 text-primary" />
@@ -142,7 +142,7 @@ export default function Booking() {
                   onChange={handleChange}
                   className="w-full bg-white border border-gray-200 rounded-lg px-3 md:px-4 py-2 md:py-3 text-dark placeholder-gray-500 focus:border-primary focus:outline-none transition-colors text-sm md:text-base"
                 />
-                <div className="grid grid-cols-2 gap-3 md:gap-4">
+                <div className="flex flex-col gap-3 md:grid md:grid-cols-2 md:gap-4">
                   <input
                     type="date"
                     name="date"

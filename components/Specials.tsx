@@ -116,7 +116,7 @@ export default function Specials() {
         </motion.div>
 
         {/* Main Specials Layout */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {specials.map((special, i) => (
             <motion.div
               key={special.name}
@@ -133,7 +133,7 @@ export default function Specials() {
               <div className="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-[#F5A623] opacity-50 hidden md:block" />
 
               {/* Image Section */}
-              <div className="relative h-48 md:h-56 lg:h-72 w-full">
+              <div className="relative h-56 sm:h-64 md:h-72 w-full">
                 <Image
                   src={special.image}
                   alt={`${special.name} - AXUM Restaurant Leeds`}
@@ -168,7 +168,7 @@ export default function Specials() {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-3xl lg:text-4xl font-black text-[#F5A623] mb-3 md:mb-4"
+                  className="text-3xl sm:text-4xl font-black text-[#F5A623] mb-3 md:mb-4"
                 >
                   {special.price}
                 </motion.p>

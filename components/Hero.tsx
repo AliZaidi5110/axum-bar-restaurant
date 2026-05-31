@@ -51,7 +51,7 @@ export default function Hero() {
   }, [current])
 
   return (
-    <section id="home" className="relative h-[98vh] w-full overflow-hidden">
+    <section id="home" className="relative h-[100svh] w-full overflow-hidden">
       {/* Background Images */}
         <AnimatePresence mode="sync">
           <motion.div
@@ -71,14 +71,14 @@ export default function Hero() {
             loop
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
             onError={() => console.error('Video failed to load:', heroVideos[current].src)}
           />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center px-4 text-center">
+      <div className="relative z-20 h-full flex flex-col items-center justify-center px-4 sm:px-6 text-center w-full">
         <motion.div
           key={current}
           variants={textVariants}
@@ -86,7 +86,7 @@ export default function Hero() {
           animate="animate"
           exit="exit"
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="max-w-5xl mx-auto"
+          className="max-w-5xl mx-auto w-full px-4 sm:px-6"
         >
           {/* Badge */}
           <motion.div
@@ -105,7 +105,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-3 md:mb-4 drop-shadow-lg"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white mb-3 md:mb-4 drop-shadow-lg"
           >
             <span className="text-[#F5A623]">AXUM</span>{' '}
             <span className="text-white">Bar & Restaurant</span>
@@ -136,7 +136,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
-            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full px-4"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full max-w-xs sm:max-w-none mx-auto"
           >
             <a
               href="#menu"

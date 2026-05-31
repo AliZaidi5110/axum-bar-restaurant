@@ -273,7 +273,7 @@ export default function Menu() {
               <button
                 key={category.id}
                 onClick={() => handleCategoryClick(i)}
-                className={`whitespace-nowrap px-3 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
+                className={`min-w-fit whitespace-nowrap px-3 md:px-5 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
                   i === activeCategory
                     ? 'bg-[#F5A623] text-black scale-105 shadow-lg shadow-[#F5A623]/30'
                     : 'bg-[#1A1A1A] text-white border border-[#F5A623]/30 hover:border-[#F5A623] hover:text-[#F5A623]'
@@ -338,11 +338,11 @@ export default function Menu() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: itemIndex * 0.05, duration: 0.4 }}
-                  className="group bg-[#141414] border-b border-[#F5A623]/10 py-3 md:py-4 px-4 md:px-6 hover:bg-[#1E1E1E] hover:border-l-4 hover:border-l-[#F5A623] transition-all duration-200"
+                  className="group bg-[#141414] border-b border-[#F5A623]/10 py-3 md:py-4 px-3 sm:px-6 hover:bg-[#1E1E1E] hover:border-l-4 hover:border-l-[#F5A623] transition-all duration-200"
                 >
-                  <div className="flex items-center gap-3 md:gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     {/* Circular Image */}
-                    <div className="relative w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 flex-shrink-0 rounded-full overflow-hidden ring-2 ring-[#F5A623] group-hover:ring-4 group-hover:scale-105 transition-all duration-300">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 flex-shrink-0 rounded-full overflow-hidden ring-2 ring-[#F5A623] group-hover:ring-4 group-hover:scale-105 transition-all duration-300">
                       {item.image ? (
                         <Image
                           src={item.image}
@@ -362,34 +362,34 @@ export default function Menu() {
                     {/* Content */}
                     <div className="flex-grow min-w-0">
                       <div className="flex items-center gap-3 mb-1">
-                        <span className="font-bold text-lg text-white group-hover:text-[#F5A623] transition-colors">
+                        <span className="font-bold text-base sm:text-lg text-white group-hover:text-[#F5A623] transition-colors">
                           {item.name}
                         </span>
-                        <span className="flex-grow border-b-2 border-dotted border-[#F5A623]/40 hidden md:block" />
+                        <span className="flex-grow border-b-2 border-dotted border-[#F5A623]/40 hidden sm:flex" />
                       </div>
 
                       {/* Price */}
                       <div className="flex items-center gap-2 flex-wrap">
                         {item.priceType === 'single' && item.singlePrice && item.doublePrice ? (
-                          <>
+                          <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                             <span className="bg-[#F5A623]/10 border border-[#F5A623] text-[#F5A623] text-xs font-bold px-3 py-1 rounded-full">
                               Single {item.singlePrice}
                             </span>
                             <span className="bg-[#F5A623]/10 border border-[#F5A623] text-[#F5A623] text-xs font-bold px-3 py-1 rounded-full">
                               Double {item.doublePrice}
                             </span>
-                          </>
+                          </div>
                         ) : item.priceType === 'glass-bottle' && item.glassPrice && item.bottlePrice ? (
-                          <>
+                          <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
                             <span className="bg-[#F5A623]/10 border border-[#F5A623] text-[#F5A623] text-xs font-bold px-3 py-1 rounded-full">
                               🍷 Glass {item.glassPrice}
                             </span>
                             <span className="bg-[#F5A623]/10 border border-[#F5A623] text-[#F5A623] text-xs font-bold px-3 py-1 rounded-full">
                               🍾 Bottle {item.bottlePrice}
                             </span>
-                          </>
+                          </div>
                         ) : (
-                          <span className="text-[#F5A623] font-black text-xl whitespace-nowrap">
+                          <span className="text-[#F5A623] font-black text-base sm:text-xl whitespace-nowrap ml-auto">
                             {item.price}
                           </span>
                         )}
