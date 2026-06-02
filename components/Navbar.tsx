@@ -60,7 +60,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
                   transition={{ duration: 0.3 }}
-                  className={`font-['Cinzel_Decorative'] font-bold text-lg md:text-xl lg:text-2xl hidden sm:block ${scrolled ? 'text-dark' : 'text-white'}`}
+                  className={`font-serif font-bold text-lg md:text-xl lg:text-2xl hidden sm:block ${scrolled ? 'text-dark' : 'text-white'}`}
                 >
                   AXUM Bar & Restaurant
                 </motion.span>

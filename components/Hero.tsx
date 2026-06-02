@@ -87,7 +87,7 @@ export default function Hero() {
         {heroVideos.map((video, index) => (
           <video
             key={video.src}
-            ref={el => videoRefs.current[index] = el}
+            ref={el => { videoRefs.current[index] = el }}
             src={video.src}
             autoPlay={index === current}
             muted
