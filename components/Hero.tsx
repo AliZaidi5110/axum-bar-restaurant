@@ -27,7 +27,8 @@ const textVariants = {
 
 export default function Hero() {
   const [current, setCurrent] = useState(0)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videosLoaded, setVideosLoaded] = useState(false)
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   const nextSlide = useCallback(() => {
     setCurrent((prev) => (prev + 1) % heroVideos.length)
@@ -42,40 +43,64 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [nextSlide])
 
+  // Preload all videos on mount
   useEffect(() => {
-    // Play the video when the slide changes
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0
-      videoRef.current.play().catch(err => console.error('Video play error:', err))
-    }
+    let loadedCount = 0
+    const totalVideos = heroVideos.length
+
+    heroVideos.forEach((_, index) => {
+      const video = videoRefs.current[index]
+      if (video) {
+        video.load()
+        const handleCanPlay = () => {
+          loadedCount++
+          if (loadedCount === totalVideos) {
+            setVideosLoaded(true)
+          }
+        }
+        video.addEventListener('canplay', handleCanPlay)
+        return () => {
+          video.removeEventListener('canplay', handleCanPlay)
+        }
+      }
+    })
+  }, [])
+
+  // Play/pause videos based on current slide
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === current) {
+          video.currentTime = 0
+          video.play().catch(err => console.error('Video play error:', err))
+        } else {
+          video.pause()
+        }
+      }
+    })
   }, [current])
 
   return (
     <section id="home" className="relative h-[100svh] w-full overflow-hidden">
-      {/* Background Images */}
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="absolute inset-0"
-          >
+      {/* Background Videos */}
+      <div className="absolute inset-0">
+        {heroVideos.map((video, index) => (
           <video
-            key={heroVideos[current].src}
-            ref={videoRef}
-            src={heroVideos[current].src}
-            autoPlay
+            key={video.src}
+            ref={el => videoRefs.current[index] = el}
+            src={video.src}
+            autoPlay={index === current}
             muted
             loop
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            onError={() => console.error('Video failed to load:', heroVideos[current].src)}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-800 ${
+              index === current ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+            onError={() => console.error('Video failed to load:', video.src)}
           />
-        </motion.div>
-      </AnimatePresence>
+        ))}
+      </div>
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center px-4 sm:px-6 text-center w-full">
