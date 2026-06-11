@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://axum-bar-restaurant.vercel.app/sitemap.xml',
+    sitemap: 'https://www.axumbar.co.uk/sitemap.xml',
   }
 }
