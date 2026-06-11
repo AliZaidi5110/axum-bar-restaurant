@@ -349,6 +349,7 @@ export default function Menu() {
                           src={item.image}
                           alt={`${item.name} at AXUM Restaurant Leeds`}
                           fill
+                          sizes="80px"
                           className="object-cover"
                         />
                       ) : (

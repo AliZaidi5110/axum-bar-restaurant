@@ -138,6 +138,7 @@ export default function Specials() {
                   src={special.image}
                   alt={`${special.name} - AXUM Restaurant Leeds`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
                 {/* Gradient overlay */}
@@ -231,6 +232,7 @@ export default function Specials() {
               src="/Axum Special.webp"
               alt="Axum Special Experience"
               fill
+              sizes="100vw"
               className="object-cover object-center blur-sm"
             />
             <div className="absolute inset-0 bg-black/80"></div>

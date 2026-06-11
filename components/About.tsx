@@ -51,6 +51,7 @@ export default function About() {
                 src="/gallery_img5.jpeg"
                 alt="AXUM Restaurant Interior"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover rounded-lg"
               />
             </div>
