@@ -22,7 +22,7 @@ const specials: SpecialDish[] = [
     name: 'Axum Special',
     price: '£55.00',
     description: 'Our signature dish featuring a generous platter of premium meats, vegetarian selections, and traditional sides. Perfect for sharing and experiencing the full range of Ethiopian flavours.',
-    image: '/Axum Special.png',
+    image: '/Axum Special.webp',
     badge: '👑 CHEF\'S SPECIAL',
     badgeColor: 'bg-[#F5A623]',
     features: ['🍖 Premium Meats', '🌱 Veg Selection', '👥 Sharing Platter'],
@@ -33,7 +33,7 @@ const specials: SpecialDish[] = [
     name: 'Tihlo',
     price: '£30.00',
     description: 'A traditional Tigray specialty featuring roasted barley balls served with rich, spicy meat stew. A truly unique and authentic experience of Northern Ethiopian cuisine.',
-    image: '/Tihlo.png',
+    image: '/Tihlo.webp',
     badge: '🌟 PRE-ORDER ONLY',
     badgeColor: 'bg-red-600',
     secondaryBadge: 'Tigray Specialty',
@@ -228,7 +228,7 @@ export default function Specials() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src="/Axum Special.png"
+              src="/Axum Special.webp"
               alt="Axum Special Experience"
               fill
               className="object-cover object-center blur-sm"

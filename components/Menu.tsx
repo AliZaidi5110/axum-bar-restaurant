@@ -8,6 +8,7 @@ import { Search } from 'lucide-react'
 interface MenuItem {
   name: string
   price: string
+  description?: string
   image?: string
   priceType?: 'single' | 'double' | 'glass-bottle'
   singlePrice?: string
@@ -54,9 +55,9 @@ const menuData: MenuCategory[] = [
     emoji: '🍷',
     id: 'wine',
     items: [
-      { name: 'White — Glass', price: '£6.50 / Bottle £25.00', image: '/White — Glass.jpg', priceType: 'glass-bottle', glassPrice: '£6.50', bottlePrice: '£25.00' },
-      { name: 'Red — Glass', price: '£6.50 / Bottle £25.00', image: '/Red — Glass.jpg', priceType: 'glass-bottle', glassPrice: '£6.50', bottlePrice: '£25.00' },
-      { name: 'Rose — Glass', price: '£6.50 / Bottle £25.00', image: '/Rose — Glass.jpg', priceType: 'glass-bottle', glassPrice: '£6.50', bottlePrice: '£25.00' },
+      { name: 'White — Glass', price: '£6.50 / Bottle £25.00', image: '/White - Glass.jpg', priceType: 'glass-bottle', glassPrice: '£6.50', bottlePrice: '£25.00' },
+      { name: 'Red — Glass', price: '£6.50 / Bottle £25.00', image: '/Red - Glass.jpg', priceType: 'glass-bottle', glassPrice: '£6.50', bottlePrice: '£25.00' },
+      { name: 'Rose — Glass', price: '£6.50 / Bottle £25.00', image: '/Rose - Glass.jpg', priceType: 'glass-bottle', glassPrice: '£6.50', bottlePrice: '£25.00' },
     ],
   },
   {
@@ -105,15 +106,15 @@ const menuData: MenuCategory[] = [
     emoji: '🌱',
     id: 'vegetarian',
     items: [
-      { name: 'Shiro', price: '£13.00', image: '/Shiro.png' },
-      { name: 'Injera Fitfit', price: '£12.00', image: '/Injera Fitfit.png' },
-      { name: 'Kicha Fitfit', price: '£10.00', image: '/beans_plantain.jpg' },
-      { name: 'Kitcha Fitfit with Meat Sauce', price: '£12.00', image: '/beans_yarn.jpg' },
-      { name: 'Spaghetti with Tomato Sauce', price: '£10.00', image: '/assorted_pepper_soup.jpg' },
-      { name: 'Macaroni with Tomato Sauce', price: '£10.00', image: '/assorted_pepper_soup.jpg' },
-      { name: 'Fuul', price: '£9.00', image: '/Semolina.jpg' },
-      { name: 'Special Fuul', price: '£10.00', image: '/Semolina.jpg' },
-      { name: 'Scrambled Eggs', price: '£9.00', image: '/Semolina.jpg' },
+      { name: 'Shiro', price: '£13.00', image: '/Shiro.webp', description: 'Powdered chickpea stew cooked with onion and a mixture of exotic traditional spices.' },
+      { name: 'Injera Fitfit', price: '£12.00', image: '/Injera Fitfit.webp', description: 'Scrambled injera mixed with cooked tomato sauce, chilli powder and spiced butter.' },
+      { name: 'Kicha Fitfit', price: '£10.00', image: '/beans_plantain.jpg', description: 'Scrambled home made pita bread mixed with cooked tomato sauce.' },
+      { name: 'Kitcha Fitfit with Meat Sauce', price: '£12.00', image: '/beans_yarn.jpg', description: 'Scrambled home made pita bread mixed with meat sauce.' },
+      { name: 'Spaghetti with Tomato Sauce', price: '£10.00', image: '/assorted_pepper_soup.jpg', description: 'Spaghetti served with our home made tomato sauce.' },
+      { name: 'Macaroni with Tomato Sauce', price: '£10.00', image: '/assorted_pepper_soup.jpg', description: 'Macaroni served with our home made tomato sauce.' },
+      { name: 'Fuul', price: '£9.00', image: '/Semolina.jpg', description: 'Cooked fava beans, green pepper, spices served with fresh home made pita bread.' },
+      { name: 'Special Fuul', price: '£10.00', image: '/Semolina.jpg', description: 'Cooked fava beans, yogurt, green pepper, spices served with fresh home made pita bread.' },
+      { name: 'Scrambled Eggs', price: '£9.00', image: '/Semolina.jpg', description: 'Scrambled egg cooked with tomato, green chilli garnished with spices.' },
     ],
   },
   {
@@ -121,21 +122,21 @@ const menuData: MenuCategory[] = [
     emoji: '🥩',
     id: 'meat-dishes',
     items: [
-      { name: 'Key Tibs', price: '£15.00', image: '/Key Tibs.jpg' },
-      { name: 'Lega Tibs', price: '£14.00', image: '/Lega Tibs.jpg' },
-      { name: 'Zelzel Tibs', price: '£15.00', image: '/Zelzel Tibs.jpg' },
-      { name: 'Awaze Tibsi', price: '£15.00', image: '/Awaze Tibsi.jpg' },
-      { name: 'Bozena Shiro', price: '£15.00', image: '/Bozena Shiro.jpg' },
-      { name: 'Shimet Tibs', price: '£15.00', image: '/Shimet Tibs.jpg' },
-      { name: 'Gomen Besiga', price: '£15.00', image: '/Gizzard.jpg' },
-      { name: 'Kitfo', price: '£14.00', image: '/Kitfo.jpg' },
-      { name: 'Dulet Kitfo', price: '£16.00', image: '/Kitfo.jpg' },
-      { name: 'Leb Leb', price: '£12.00', image: '/Isiewu.jpg' },
-      { name: 'Kuanta Firfir', price: '£16.00', image: '/Nkwobi.jpg' },
-      { name: 'Spaghetti Bolognese', price: '£12.00', image: '/Yam_goat.jpg' },
-      { name: 'Macaroni Bolognese', price: '£12.00', image: '/Yam_goat.jpg' },
-      { name: 'Derek Tibs', price: '£15.00', image: '/Key Tibs.jpg' },
-      { name: 'Dorho', price: '£22.00', image: '/Tilapia.jpg' },
+      { name: 'Key Tibs', price: '£15.00', image: '/Key Tibs.jpg', description: 'Lamb cubes fried with onion, garlic, rosemary, green chillies, chilli powder and a mixture of traditional spices, served with a salad on the side.' },
+      { name: 'Lega Tibs', price: '£14.00', image: '/Lega Tibs.jpg', description: 'Lamb cubes fried with onion, garlic, rosemary, green chillies and a mixture of traditional spices, served with a salad on the side.' },
+      { name: 'Zelzel Tibs', price: '£15.00', image: '/Zelzel Tibs.jpg', description: 'Strips of lamb cooked with onions and green chillies in a variety of herbs and spices.' },
+      { name: 'Awaze Tibsi', price: '£15.00', image: '/Awaze Tibsi.jpg', description: 'Small tender lamb cubes fried with onion, green chillies, served with awaze (combination of hot spices) on the side.' },
+      { name: 'Bozena Shiro', price: '£15.00', image: '/Bozena Shiro.jpg', description: 'Powdered chickpea stew cooked with lamb.' },
+      { name: 'Shimet Tibs', price: '£15.00', image: '/Shimet Tibs.jpg', description: 'Chunks of lamb meat and ribs cooked with onion, green chillies, rosemary and spiced butter.' },
+      { name: 'Gomen Besiga', price: '£15.00', image: '/Gizzard.jpg', description: 'Seasoned lamb cooked with collard greens.' },
+      { name: 'Kitfo', price: '£14.00', image: '/Kitfo.jpg', description: 'Finely chopped lean beef cooked to a medium rare with traditional spiced butter.' },
+      { name: 'Dulet Kitfo', price: '£16.00', image: '/Kitfo.jpg', description: 'Minced lean prime beef seasoned with traditional spices and spiced butter cooked to a medium rare.' },
+      { name: 'Leb Leb', price: '£12.00', image: '/Isiewu.jpg', description: 'Small beef cubes cooked at low heat with spiced butter served with awaze and mitimita (powdered bird eye chilli pepper).' },
+      { name: 'Kuanta Firfir', price: '£16.00', image: '/Nkwobi.jpg', description: 'Dried beef cooked with a mixture of traditional spices, served mixed with injera.' },
+      { name: 'Spaghetti Bolognese', price: '£12.00', image: '/Yam_goat.jpg', description: 'Spaghetti served with our rich, slow-cooked meat sauce.' },
+      { name: 'Macaroni Bolognese', price: '£12.00', image: '/Yam_goat.jpg', description: 'Macaroni served with our rich, slow-cooked meat sauce.' },
+      { name: 'Derek Tibs', price: '£15.00', image: '/Key Tibs.jpg', description: 'Marinated beef cubes and lamb ribs deep fried until dark and crispy, cooked with onion, garnished with green chillies and bell peppers.' },
+      { name: 'Dorho', price: '£22.00', image: '/Tilapia.jpg', description: 'Chicken stew slowly cooked in a rich flavour of herbs, spices and chilli powder. Ideal for 2 people.' },
     ],
   },
   {
@@ -143,10 +144,10 @@ const menuData: MenuCategory[] = [
     emoji: '⭐',
     id: 'specials',
     items: [
-      { name: 'Vegan Combo', price: '£15.00', image: '/Shiro.png' },
-      { name: 'Meat Combo', price: '£35.00', image: '/Key Tibs.jpg' },
-      { name: 'Axum Special', price: '£55.00', image: '/Axum Special.png', badge: 'chefs-special' },
-      { name: 'Tihlo', price: '£30.00', image: '/Tihlo.png', badge: 'chefs-special' },
+      { name: 'Vegan Combo', price: '£15.00', image: '/Shiro.webp', description: 'A combination of chickpea stew, lentil stew, cooked vegetables and salad.' },
+      { name: 'Meat Combo', price: '£35.00', image: '/Key Tibs.jpg', description: 'A variety of meat specialities including Lega Tibs, Key Tibs, Gomen Besiga, Leb Leb, and Kitfo.' },
+      { name: 'Axum Special', price: '£55.00', image: '/Axum Special.webp', badge: 'chefs-special', description: 'A selection of our signature dishes: Vegetarian, Shiro, Kitfo, Leb Leb, Derek Tibs, and Key Wet. Ideal for 3 people.' },
+      { name: 'Tihlo', price: '£30.00', image: '/Tihlo.webp', badge: 'chefs-special', description: 'A dish from the historical Agame province in Tigray made of barley dough balls, eaten with a specially prepared traditional stew. Available pre-order only.' },
     ],
   },
   {
@@ -154,11 +155,11 @@ const menuData: MenuCategory[] = [
     emoji: '🍳',
     id: 'breakfast',
     items: [
-      { name: 'Kicha Fitfit', price: '£10.00', image: '/beans_plantain.jpg' },
-      { name: 'Kitcha Fitfit with Meat Sauce', price: '£12.00', image: '/beans_yarn.jpg' },
-      { name: 'Fuul', price: '£9.00', image: '/Semolina.jpg' },
-      { name: 'Special Fuul', price: '£10.00', image: '/Semolina.jpg' },
-      { name: 'Scrambled Eggs', price: '£9.00', image: '/Semolina.jpg' },
+      { name: 'Kicha Fitfit', price: '£10.00', image: '/beans_plantain.jpg', description: 'Scrambled home made pita bread mixed with cooked tomato sauce.' },
+      { name: 'Kitcha Fitfit with Meat Sauce', price: '£12.00', image: '/beans_yarn.jpg', description: 'Scrambled home made pita bread mixed with meat sauce.' },
+      { name: 'Fuul', price: '£9.00', image: '/Semolina.jpg', description: 'Cooked fava beans, green pepper, spices served with fresh home made pita bread.' },
+      { name: 'Special Fuul', price: '£10.00', image: '/Semolina.jpg', description: 'Cooked fava beans, yogurt, green pepper, spices served with fresh home made pita bread.' },
+      { name: 'Scrambled Eggs', price: '£9.00', image: '/Semolina.jpg', description: 'Scrambled egg cooked with tomato, green chilli garnished with spices.' },
     ],
   },
 ]
@@ -367,6 +368,13 @@ export default function Menu() {
                         </span>
                         <span className="flex-grow border-b-2 border-dotted border-[#F5A623]/40 hidden sm:flex" />
                       </div>
+
+                      {/* Description */}
+                      {item.description && (
+                        <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-2 pr-2">
+                          {item.description}
+                        </p>
+                      )}
 
                       {/* Price */}
                       <div className="flex items-center gap-2 flex-wrap">
